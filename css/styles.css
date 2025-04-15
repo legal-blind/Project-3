@@ -64,3 +64,23 @@ body.hobbies {
   background-color: #f5fffa;
   color: #228b22;
 }
+
+/* Map page styles */
+body.map {
+  background-color: #f0f8ff;
+  color: #333;
+}
+
+body.map h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #004466;
+}
+
+#map {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: 90%;
+  height: 500px;
+}
