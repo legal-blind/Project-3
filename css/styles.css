@@ -64,3 +64,9 @@ body.hobbies {
   background-color: #f5fffa;
   color: #228b22;
 }
+
+/* Map page styles */
+body.map {
+  background-color: #f0f8ff; /* light blue */
+  color: #000;
+}
