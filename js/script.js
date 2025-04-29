@@ -1,35 +1,43 @@
 function initMap() {
-    const center = { lat: 41.5834, lng: -87.2540 }; // Hobart, IN
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
-      center: center,
-    });
-  
-    // Feature 1: Custom Marker
+  const center = { lat: 41.8349, lng: -87.6270 }; // Illinois Tech
+
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 11,
+    center: center,
+    mapTypeId: "roadmap",
+  });
+
+  const landmarks = [
+    {
+      position: { lat: 41.8349, lng: -87.6270 },
+      title: "Illinois Institute of Technology",
+      info: "The school I attend."
+    },
+    {
+      position: { lat: 41.8781, lng: -87.6298 },
+      title: "Tuft Stuff, Chicago IL",
+      info: "This is where I'm taking my mom for Mother's Day."
+    },
+    {
+      position: { lat: 41.5645, lng: -87.5017 },
+      title: "I am PoPCorn, Munster IN",
+      info: "My first job."
+    }
+  ];
+
+  landmarks.forEach(({ position, title, info }) => {
     const marker = new google.maps.Marker({
-
-     position: center,
-      map: map,
-
-     title: "Our Main Office",
-      icon: {
-        url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-      },
+      position,
+      map,
+      title
     });
-  
-    // Feature 2: Info Window
+
     const infoWindow = new google.maps.InfoWindow({
-      content: "<h3>Our Main Office</h3><p>Come visit us!</p>",
+      content: `<h3>${title}</h3><p>${info}</p>`
     });
-  
+
     marker.addListener("click", () => {
       infoWindow.open(map, marker);
     });
-  
-    // Feature 3: Directions Link
-    const directionsLink = document.createElement("a");
-    directionsLink.href = `https://www.google.com/maps/dir/?api=1&destination=${center.lat},${center.lng}`;
-    directionsLink.textContent = "Get Directions";
-    directionsLink.target = "_blank";
-    document.body.appendChild(directionsLink);
-  }
+  });
+}
