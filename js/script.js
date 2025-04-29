@@ -2,7 +2,7 @@ function initMap() {
   const center = { lat: 41.8349, lng: -87.6270 }; // Illinois Tech
 
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 11,
+    zoom: 9,
     center: center,
     mapTypeId: "roadmap",
   });
